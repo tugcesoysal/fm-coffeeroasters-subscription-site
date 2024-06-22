@@ -1,0 +1,184 @@
+// COLORS
+
+$dark-cyan: #0e8784;
+$dark-grey-blue: #333d4b;
+$pale-orange: #fdd6ba;
+$light-cream: #fefcf7;
+$bg: #fefcf7;
+$grey: #83888f;
+$button-bg: #0e8784;
+$button-hover: #66d2cf;
+$button-disabled: #e2dedb;
+$selection-bg: #f4f1eb;
+$selection-hover: #fdd6ba;
+$selection-active: #0e8784;
+$nav-menu: #83888f;
+$nav-menu-hover: #333d4b;
+$footer-bg: #2c343e;
+$why-section-bg: #2c343e;
+$quality-section-bg: #2c343e;
+$bg-gradient1: rgba(254, 252, 247, 1);
+$bg-gradient2: rgba(254, 252, 247, 0.5);
+$mobile-menu-nav: #333d4b;
+$feature-card-bg: #0e8784;
+$option-bg: #f4f1eb;
+$order-summary-bg: #2c343e;
+
+// TYPOGRAPHY
+// font-family: "Fraunces", serif;
+// font-family: "Barlow", sans-serif;
+
+@mixin title-alternate-big {
+  font-family: "Fraunces", serif;
+  font-size: 150px;
+  line-height: 72px;
+  text-transform: lowercase;
+  color: #83888f;
+  font-weight: bold;
+
+  @media (max-width: 1000px) {
+    font-size: 96px;
+    line-height: 72px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 40px;
+    line-height: 72px;
+  }
+}
+
+@mixin h1 {
+  font-family: "Fraunces", serif;
+  font-size: 72px;
+  line-height: 72px;
+  color: $light-cream;
+
+  @media (max-width: 1000px) {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+@mixin h2 {
+  font-family: "Fraunces", serif;
+  font-size: 40px;
+  line-height: 48px;
+  color: $light-cream;
+
+  @media (max-width: 1000px) {
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 28px;
+    line-height: 28px;
+  }
+}
+
+@mixin h3 {
+  font-family: "Fraunces", serif;
+  font-size: 32px;
+  line-height: 36px;
+
+  @media (max-width: 1000px) {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+
+@mixin h4 {
+  font-family: "Fraunces", serif;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+@mixin body {
+  font-family: "Barlow", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: $light-cream;
+  opacity: 80%;
+
+  @media (max-width: 1000px) {
+    font-size: 15px;
+    line-height: 25px;
+  }
+}
+
+@mixin navigation-menu {
+  font-family: "Barlow", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $nav-menu;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    color: $nav-menu-hover;
+  }
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
+
+p {
+  @include body;
+}
+
+//  BUTTON
+
+@mixin main-button {
+  border-radius: 6px;
+  background-color: $button-bg;
+  font-family: "Fraunces", serif;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  color: $light-cream;
+  padding: 15px 30px;
+
+  &:hover {
+    background-color: $button-hover;
+  }
+
+  &:disabled {
+    background-color: $button-disabled;
+  }
+}
+
+button {
+  @include main-button;
+}
+
+// SELECTION
+
+@mixin selection-option {
+  border-radius: 8px;
+  background-color: $selection-bg;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}

@@ -1,0 +1,126 @@
+@import "./design";
+
+.layout {
+  min-height: 100vh;
+  background-color: $bg;
+  padding-inline: 5%;
+  padding-bottom: 72px;
+}
+
+header {
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+nav {
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 33px;
+
+    li {
+      @include navigation-menu;
+    }
+  }
+}
+
+.icon-menu {
+  cursor: pointer;
+}
+
+footer {
+  background-color: $footer-bg;
+  display: flex;
+  align-items: center;
+  padding: 47px 85px;
+  gap: 103px;
+  margin-top: 168px;
+
+  nav {
+    ul {
+      li {
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.social-list {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    padding: 0 40px;
+  }
+
+  footer {
+    flex-direction: column;
+    padding: 54px 215px;
+    gap: 0;
+    margin-top: 144px;
+
+    nav {
+      margin-top: 32px;
+      margin-bottom: 65px;
+    }
+  }
+
+  .social-list {
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .layout {
+    padding: 0 24px;
+  }
+
+  footer {
+    padding: 54px;
+    margin-top: 120px;
+  }
+
+  footer nav ul {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, $bg-gradient1, $bg-gradient2);
+
+  nav {
+    margin: 40px auto;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        @include h4;
+        color: $mobile-menu-nav;
+        text-transform: capitalize;
+
+        &:hover {
+          color: $dark-cyan;
+        }
+      }
+    }
+  }
+}

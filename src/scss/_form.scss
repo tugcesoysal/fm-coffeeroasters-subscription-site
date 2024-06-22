@@ -1,0 +1,311 @@
+@import "./design";
+
+// FORM
+.form {
+  width: 90%;
+  display: flex;
+  align-items: flex-start;
+  gap: 8%;
+}
+
+.form-headers-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 40%;
+  min-width: 270px;
+
+  li {
+    opacity: 80%;
+    display: flex;
+    align-items: center;
+    gap: 29px;
+    color: $grey;
+    @include h4;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(131, 136, 143, 0.2);
+    padding: 24px;
+    cursor: pointer;
+
+    &.disabled {
+      pointer-events: none;
+
+      h4,
+      span {
+        opacity: 0.2 !important;
+      }
+    }
+
+    &.active {
+      color: $dark-grey-blue;
+      opacity: 1;
+
+      span {
+        color: $grey;
+        opacity: 1;
+      }
+    }
+
+    &:first-child.active {
+      span {
+        color: $dark-cyan;
+        opacity: 1;
+      }
+    }
+
+    &:last-child {
+      border: none;
+    }
+
+    span {
+      opacity: 50%;
+    }
+  }
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 88px;
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 56px;
+
+  h2 {
+    color: $grey;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    .opened-icon {
+      transform: rotateX(180deg);
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.2 !important;
+  }
+}
+
+.options {
+  display: flex;
+  align-items: stretch;
+  gap: 23px;
+}
+
+.option-card {
+  background-color: $option-bg;
+  padding: 32px 28px 84px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+  border-radius: 8px;
+  cursor: pointer;
+
+  p {
+    color: $dark-grey-blue;
+  }
+}
+
+.selected {
+  background-color: $dark-cyan;
+
+  h4 {
+    color: white;
+  }
+
+  p {
+    color: $light-cream;
+  }
+}
+
+.order-summary {
+  background-color: $order-summary-bg;
+  padding: 47px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 8px;
+
+  p {
+    color: white;
+    opacity: 0.5;
+  }
+
+  h4 {
+    color: white;
+
+    span {
+      color: $dark-cyan;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .form {
+    width: 100%;
+  }
+
+  .form-headers-list {
+    display: none;
+  }
+
+  .form-content {
+    gap: 100px;
+  }
+
+  .question {
+    gap: 40px;
+  }
+
+  .options {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .order-summary {
+    padding: 27px 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .question {
+    gap: 32px;
+  }
+
+  .options {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .option-card {
+    padding: 24px;
+    gap: 8px;
+  }
+
+  .order-summary {
+    padding: 32px 24px;
+  }
+}
+
+// BUTTON
+
+.subscribe__button {
+  margin-left: auto;
+  margin-top: -40px;
+
+  &:disabled {
+    background-color: $button-disabled;
+  }
+
+  @media (max-width: 1000px) {
+    margin: 0 auto;
+    margin-top: -100px;
+  }
+
+  @media (max-width: 1000px) {
+    margin-top: -60px;
+  }
+}
+
+// MODAL
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: rgb(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-card {
+  width: 540px;
+}
+
+.modal-header {
+  background-color: $dark-grey-blue;
+  padding: 8%;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.modal-summary {
+  background-color: $light-cream;
+  padding: 10%;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+  .summary {
+    color: $grey;
+
+    span {
+      color: $dark-cyan;
+    }
+  }
+
+  p {
+    margin-top: 7px;
+    color: $dark-grey-blue;
+  }
+}
+.modal-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto 0;
+}
+
+.modal-footer .desktop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-footer .desktop button {
+  @include main-button;
+  width: 50%;
+}
+
+.modal-footer .mobile {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .modal-card {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-footer .desktop {
+    display: none;
+  }
+
+  .modal-footer .mobile {
+    display: block;
+
+    button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
